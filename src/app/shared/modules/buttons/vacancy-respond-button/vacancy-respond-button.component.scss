@@ -1,0 +1,49 @@
+@import '../../../../shared/modules/scss/custom';
+
+.button {
+  border-radius: 5px;
+  background-color: $blue-primary;
+  color: $white;
+  font-size: 10px;
+  width: 124px;
+  height: 24px;
+  border: none;
+  font-weight: $font-weight-semiBold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &-icon {
+    font-size: 14px;
+    width: fit-content;
+    height: fit-content;
+  }
+}
+
+.loader {
+  width: 10px;
+  height: 10px;
+  margin-left: 4px;
+  border: 2px solid #FFF;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.btn-big {
+  width: 168px;
+  height: 32px;
+  font-size: 12px;
+  gap: 2px;
+}

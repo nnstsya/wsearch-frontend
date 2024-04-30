@@ -1,0 +1,22 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap/scss/mixins';
+@import '../../scss/custom';
+
+.header {
+  background-color: $header-bg-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  padding: 15px 25px;
+  box-shadow: $header-box-shadow;
+
+  &__logo {
+    display: flex;
+  }
+
+  &__profile-icon {
+    color: white;
+    display: flex;
+  }
+}

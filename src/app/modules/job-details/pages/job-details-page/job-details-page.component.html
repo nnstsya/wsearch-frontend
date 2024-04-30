@@ -1,0 +1,21 @@
+<div class="job-details-page">
+  <div class="job-details-page__title mb-2">
+    <mat-icon routerLink="/jobs">chevron_left</mat-icon>
+    <p class="job-details-page__title-name">{{ vacancy.name }}</p>
+  </div>
+  <div class="job-details-page__info">
+    <p class="job-details-page__info-company">{{ vacancy.company }}</p>
+    <p class="job-details-page__info-salary">{{ vacancy.salary }}$</p>
+  </div>
+  <div class="spacer spacer-darker"></div>
+  <div class="job-details-page__location">
+    <p class="job-details-page__location-heading mb-2">Місцезнаходження</p>
+    <p class="job-details-page__location-type">{{ vacancy.type }}</p>
+  </div>
+  <div class="spacer spacer-light"></div>
+  <p class="job-details-page__description-heading mb-2">Повний опис вакансії</p>
+  <p class="job-details-page__description">{{ vacancy.description }}</p>
+  <app-vacancy-respond-button class="job-details-page__button-wrapper" [isSmall]=false></app-vacancy-respond-button>
+  <app-fade-out class="mt-3"></app-fade-out>
+</div>
+

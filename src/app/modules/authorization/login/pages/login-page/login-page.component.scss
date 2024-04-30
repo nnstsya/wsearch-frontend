@@ -1,0 +1,58 @@
+@import '../../../../../shared/modules/scss/custom';
+
+.authorization-page {
+  display: flex;
+  flex-direction: column;
+  height: calc(100dvh - $header-height);
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    &__input {
+      &-label {
+        font-size: 14px;
+        font-weight: $font-weight-semiBold;
+      }
+
+      &-field {
+        padding: 9px;
+        width: 236px;
+        border: 1px solid $blue-primary;
+        border-radius: 5px;
+
+        &:focus {
+          outline-color: $blue-primary;
+        }
+      }
+    }
+  }
+
+  &__button {
+    padding-block: 9px;
+    width: 236px;
+    font-weight: $font-weight-bold;
+    background-color: $blue-primary;
+    border: none;
+    border-radius: 5px;
+    color: $white;
+  }
+
+  &__actions {
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    width: 236px;
+
+    &-action {
+      font-weight: $font-weight-extraBold;
+      color: $black;
+      text-decoration: underline;
+    }
+  }
+}

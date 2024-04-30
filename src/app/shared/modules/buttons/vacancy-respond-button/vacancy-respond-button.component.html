@@ -1,0 +1,12 @@
+<button
+  [className]="isSmall ? 'button' : 'button btn-big'"
+  (click)="showLoader()"
+>
+  <span>Відгукнутись</span>
+  <ng-container *ngIf="!isLoading; else loaderTemplate">
+    <mat-icon class="button-icon">check</mat-icon>
+  </ng-container>
+  <ng-template #loaderTemplate>
+    <div class="loader"></div>
+  </ng-template>
+</button>

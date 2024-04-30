@@ -1,0 +1,77 @@
+@import '../../../../shared/modules/scss/custom';
+
+.spacer {
+  height: 1px;
+  width: 100%;
+  margin-block: 15px;
+
+  &-darker {
+    background-color: $grey-lighter;
+  }
+
+  &-light {
+    background-color: $grey-light;
+  }
+}
+
+.job-details-page {
+  padding: 20px 25px;
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    display: flex;
+    place-items: center;
+    gap: 4px;
+
+    &-name {
+      font-size: 22px;
+      font-weight: $font-weight-semiBold;
+    }
+  }
+
+  &__info {
+    display: flex;
+    place-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: $font-weight-light;
+
+    &-salary {
+      color: $grey;
+    }
+  }
+
+  &__location-heading, &__description-heading {
+    font-size: 18px;
+    font-weight: $font-weight-semiBold;
+  }
+
+  &__location {
+    display: flex;
+    flex-direction: column;
+
+    &-type {
+      background-color: $grey-light;
+      font-size: 12px;
+      font-weight: $font-weight-light;
+      padding: 2px 8px;
+      border-radius: 4px;
+      width: fit-content;
+    }
+  }
+
+  &__description {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    font-size: 15px;
+    font-weight: $font-weight-light;
+    margin-bottom: 16px;
+  }
+
+  &__button-wrapper {
+    width: 100%;
+    display: flex;
+    place-content: center;
+  }
+}

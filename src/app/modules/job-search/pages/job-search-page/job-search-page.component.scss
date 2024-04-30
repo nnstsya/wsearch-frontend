@@ -1,0 +1,56 @@
+@import '../../../../shared/modules/scss/custom';
+
+.job-search-page {
+  padding: 20px 25px;
+  display: flex;
+  flex-direction: column;
+
+  &__number-of-vacancies {
+    font-size: 10px;
+    font-weight: $font-weight-light;
+    margin-block: 8px 14px;
+  }
+
+  &__vacancies {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.searchbar {
+  display: flex;
+  padding: 12px;
+  box-shadow: rgba(0, 0, 0, 0.04) 0 3px 5px;
+  width: 274px;
+  gap: 4px;
+
+  &__icon-search {
+    color: $grey;
+    overflow: visible;
+  }
+
+  &__input {
+    border: none;
+    border-radius: 0;
+    font-size: 12px;
+    font-weight: $font-weight-light;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__filter-menu {
+    position: absolute;
+  }
+}
+
+.no-results {
+  width: 100%;
+  display: flex;
+  place-items: center;
+  color: $black;
+  font-weight: $font-weight-light;
+}

@@ -1,0 +1,61 @@
+@import '../../../../../../shared/modules/scss/custom';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  &__footer {
+    gap: 5px;
+  }
+}
+
+.vacancy {
+  padding: 10px 15px 14px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  box-shadow: $vacancy-box-shadow;
+  border-radius: 10px;
+  height: 140px;
+
+  &:hover {
+    box-shadow: $vacancy-box-shadow-focus;
+  }
+
+  &__type {
+    background-color: $grey-light;
+    text-align: center;
+    font-size: 10px;
+    font-weight: $font-weight-light;
+    padding: 2px 8px;
+    border-radius: 4px;
+    width: fit-content;
+    margin-bottom: 5px;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: $font-weight-semiBold;
+  }
+
+  &__additional-info {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    &-company {
+      font-size: 12px;
+      font-weight: $font-weight-medium;
+    }
+
+    &-salary {
+      font-size: 10px;
+      color: $grey;
+    }
+  }
+
+  &__date {
+    color: $grey-darker;
+    font-size: 10px;
+  }
+}

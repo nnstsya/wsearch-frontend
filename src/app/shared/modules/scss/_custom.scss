@@ -1,0 +1,44 @@
+@import "../../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../../node_modules/bootstrap/scss/mixins";
+
+$blue-primary: #3686d7;
+$blue-focus: #147BE1;
+
+$red: #FF5964;
+
+$grey-light: #F3F3F3;
+$grey-lighter: #dedede;
+$grey: #757373;
+$grey-darker: #747474;
+
+$font-family-primary: "Manrope", "Arial", Arial;
+
+$body-bg: #fff;
+$body-color: #000;
+
+$white: #FFFFFF;
+$black: #000000;
+
+$font-weight-extraLight: 100;
+$font-weight-light: 200;
+$font-weight-regular: 300;
+$font-weight-medium: 400;
+$font-weight-semiBold: 500;
+$font-weight-bold: 600;
+$font-weight-extraBold: 700;
+
+$header-bg-color: $blue-primary;
+$header-box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+$header-height: 54px;
+
+$btn-color: $blue-primary;
+$btn-color-focus: $blue-focus;
+
+$input-color: #000;
+$input-border-color: $blue-primary;
+$input-error-border-color: $red;
+$input-border-radius: 5px;
+
+$vacancy-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+$vacancy-box-shadow-focus: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgb(0 0 0 / 39%) 0px 2px 4px -1px;
