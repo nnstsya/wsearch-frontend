@@ -4,7 +4,7 @@
     <input class="searchbar__input"
            type="text"
            placeholder="Введіть бажану посаду"
-           (keydown)="filterResults(search.value)"
+           (keyup)="filterResults(search.value)"
            #search/>
     <mat-icon [matMenuTriggerFor]="belowMenu">filter_list</mat-icon>
     <mat-menu class="searchbar__filter-menu" #belowMenu="matMenu" yPosition="below" >

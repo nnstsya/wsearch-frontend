@@ -1,0 +1,89 @@
+@import '../../../../shared/modules/scss/custom';
+
+.create-vacancy-page {
+  display: flex;
+  padding: 20px 25px;
+  flex-direction: column;
+
+  &__title {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+
+    &__input {
+      &-label {
+        font-size: 14px;
+        font-weight: $font-weight-semiBold;
+      }
+
+      &-field {
+        padding: 9px;
+        min-width: 270px;
+        border: 1px solid $blue-primary;
+        border-radius: 5px;
+
+        &:focus {
+          outline-color: $blue-primary;
+        }
+      }
+    }
+
+    &__picker {
+      display: flex;
+      gap: 5px;
+
+      &-checkbox {
+        border: 1px solid $blue-primary;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    &-button {
+      border-radius: 5px;
+      padding: 6px 20px;
+      width: 112px;
+      font-size: 14px;
+      font-weight: $font-weight-bold;
+      border: none;
+      color: $white;
+    }
+  }
+}
+
+.button {
+  &-done {
+    background-color: $blue-primary;
+  }
+
+  &-cancel {
+    background-color: $grey;
+  }
+}
+
+.input-field-description {
+  height: fit-content;
+  min-height: 200px;
+  overflow-wrap: break-word;
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  margin-block: 15px;
+
+  &-darker {
+    background-color: $grey-lighter;
+  }
+}

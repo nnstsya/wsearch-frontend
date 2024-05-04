@@ -1,1 +1,37 @@
-<p>create-vacancy-page works!</p>
+<div class="create-vacancy-page">
+    <p class="create-vacancy-page__title">Створення нової вакансії</p>
+    <div class="divider divider-darker"></div>
+    <div class="create-vacancy-page__form">
+        <div class="create-vacancy-page__form__input">
+            <p class="create-vacancy-page__form__input-label">Назва посади</p>
+            <input type="text" class="create-vacancy-page__form__input-field" />
+        </div>
+        <div class="create-vacancy-page__form__input">
+            <p class="create-vacancy-page__form__input-label">Компанія</p>
+            <input type="text" class="create-vacancy-page__form__input-field" />
+        </div>
+        <div class="create-vacancy-page__form__input">
+            <p class="create-vacancy-page__form__input-label">Заробітна плата($)</p>
+            <input type="number" class="create-vacancy-page__form__input-field">
+        </div>
+        <div>
+            <p class="create-vacancy-page__form__input-label">Місцезнаходження</p>
+            <div class="create-vacancy-page__form__picker">
+                <input type="checkbox" class="create-vacancy-page__form__picker-checkbox" />
+                <p class="create-vacancy-page__form__input-label">Офіс</p>
+            </div>
+            <div class="create-vacancy-page__form__picker">
+                <input type="checkbox" class="create-vacancy-page__form__picker-checkbox" />
+                <p class="create-vacancy-page__form__input-label">Віддалена робота</p>
+            </div>
+        </div>
+        <div class="create-vacancy-page__form__input">
+            <p class="create-vacancy-page__form__input-label">Опис вакансії</p>
+            <textarea class="create-vacancy-page__form__input-field input-field-description"></textarea>
+        </div>
+    </div>
+    <div class="create-vacancy-page__buttons">
+        <button class="create-vacancy-page__buttons-button button-done">Створити</button>
+        <button class="create-vacancy-page__buttons-button button-cancel">Скасувати</button>
+    </div>
+</div>
