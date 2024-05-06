@@ -1,11 +1,11 @@
 export interface VacancyModel {
-  id: string
+  id?: string
   name: string
   company: string
   type: string
   salary: string
   description: string
-  date: string
+  date: number
 }
 
 export enum VacancyTypeModel {

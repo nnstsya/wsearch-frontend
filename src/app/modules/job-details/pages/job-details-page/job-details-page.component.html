@@ -1,4 +1,4 @@
-<div class="job-details-page">
+<div *ngIf="vacancy$ | async as vacancy" class="job-details-page">
   <div class="job-details-page__header mb-2">
     <mat-icon routerLink="/jobs">chevron_left</mat-icon>
     <p class="job-details-page__name">{{ vacancy.name }}</p>
