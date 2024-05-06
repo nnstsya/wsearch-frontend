@@ -22,6 +22,14 @@ export const routes: Routes = [
   {
     path: 'jobs/:id',
     loadChildren: () => import('./modules/job-details/job-details.module').then(m => m.JobDetailsModule)
+  },
+  {
+    path: 'jobs/:id/edit',
+    loadChildren: () => import('./modules/edit-vacancy/edit-vacancy.module').then(m => m.EditVacancyModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule)
   }
 ]
 
