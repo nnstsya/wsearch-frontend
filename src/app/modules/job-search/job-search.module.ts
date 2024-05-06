@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router'
 import {ButtonsModule} from "@shared/modules/buttons/buttons.module";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatButtonModule} from "@angular/material/button";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {VacancyService} from "../../services/vacancy.service";
 
 @NgModule({
   declarations: [
@@ -32,6 +32,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
         ButtonsModule,
         MatButtonModule,
         MatMenuModule,
-    ]
+    ],
+    providers: [VacancyService]
 })
 export class JobSearchModule {}
