@@ -1,61 +1,40 @@
-import { VacancyModel } from '@shared/modules/models/vacancy.model'
-
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core';
+import { VacancyModel } from '@shared/modules/models/vacancy.model';
+import { VacancyService } from '../../../../services/vacancy.service';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-job-search-page',
   templateUrl: './job-search-page.component.html',
-  styleUrl: './job-search-page.component.scss'
+  styleUrls: ['./job-search-page.component.scss']
 })
-export class JobSearchPageComponent {
-  vacancyList: VacancyModel[] = [
-    {
-      id: '1',
-      name: 'Frontend розробник',
-      company: 'Amedia',
-      type: 'Віддалена робота',
-      salary: '500-600',
-      description: 'lalalalalala',
-      date: '14 березня'
-    },
-    {
-      id: '2',
-      name: 'Frontend розробник',
-      company: 'Amedia',
-      type: 'Віддалена робота',
-      salary: '500-600',
-      description: 'lalalalalala',
-      date: '14 березня'
-    },
-    {
-      id: '3',
-      name: 'Backend розробник',
-      company: 'Amedia',
-      type: 'Віддалена робота',
-      salary: '500-600',
-      description: 'lalalalalala',
-      date: '14 березня'
-    },
-    {
-      id: '4',
-      name: 'Frontend розробник',
-      company: 'Amedia',
-      type: 'Віддалена робота',
-      salary: '500-600',
-      description: 'lalalalalala',
-      date: '14 березня'
-    }
-  ]
-  filteredVacancyList: VacancyModel[] = []
-  numOfVacancies: number = this.vacancyList.length
+export class JobSearchPageComponent implements OnInit {
+  vacancyList: Observable<VacancyModel[]>;
+  filteredVacancyList$: Observable<VacancyModel[]>;
+  numOfVacancies: number = 0;
 
-  constructor() {
-    this.filteredVacancyList = this.vacancyList;
+  constructor(private vacancyService: VacancyService) {
+    this.vacancyList = this.vacancyService.getAllVacancies();
+    this.filteredVacancyList$ = this.vacancyList;
+  }
+
+  ngOnInit() {
+    this.getNumOfVacancies();
   }
 
   filterResults(text: string) {
-    text ? this.filteredVacancyList = this.vacancyList.filter(vacancy =>
-    vacancy.name.toLowerCase().includes(text.toLowerCase())) : this.filteredVacancyList = this.vacancyList;
-    this.numOfVacancies = this.filteredVacancyList.length;
+    this.filteredVacancyList$ = text ? this.vacancyList.pipe(
+        map(vacancies => vacancies.filter(vacancy =>
+            vacancy.name.toLowerCase().includes(text.toLowerCase()))
+        )
+    ) : this.vacancyList;
+    this.getNumOfVacancies();
+  }
+
+  private getNumOfVacancies() {
+    this.filteredVacancyList$.pipe(
+        map(vacancies => vacancies.length)
+    ).subscribe(num => this.numOfVacancies = num);
   }
 }

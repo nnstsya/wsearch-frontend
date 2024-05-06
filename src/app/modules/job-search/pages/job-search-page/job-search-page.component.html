@@ -1,4 +1,4 @@
-<div class="job-search-page">
+<div *ngIf="filteredVacancyList$ | async as vacancies"class="job-search-page">
   <div class="searchbar">
     <mat-icon class="searchbar__icon-search">search</mat-icon>
     <input class="searchbar__input"
@@ -6,16 +6,16 @@
            placeholder="Введіть бажану посаду"
            (keydown)="filterResults(search.value)"
            #search/>
-    <mat-icon [matMenuTriggerFor]="belowMenu">filter_list</mat-icon>
-    <mat-menu class="searchbar__filter-menu" #belowMenu="matMenu" yPosition="below" >
-      <button mat-menu-item>Item 1</button>
-      <button mat-menu-item>Item 2</button>
-    </mat-menu>
+<!--    <mat-icon [matMenuTriggerFor]="belowMenu">filter_list</mat-icon>-->
+<!--    <mat-menu class="searchbar__filter-menu" #belowMenu="matMenu" yPosition="below" >-->
+<!--      <button mat-menu-item>Item 1</button>-->
+<!--      <button mat-menu-item>Item 2</button>-->
+<!--    </mat-menu>-->
   </div>
   <p class="job-search-page__number-of-vacancies">Всього вакансій: {{ numOfVacancies }}</p>
   <div class="job-search-page__vacancies">
-    <ng-container *ngIf="filteredVacancyList.length; else noResultsTemplate">
-      <ng-container *ngFor="let vacancy of filteredVacancyList">
+    <ng-container *ngIf="vacancies.length; else noResultsTemplate">
+      <ng-container *ngFor="let vacancy of vacancies">
         <app-job-search-vacancy [vacancy]="vacancy"></app-job-search-vacancy>
       </ng-container>
     </ng-container>
