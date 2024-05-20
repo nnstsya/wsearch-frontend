@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
+import { FormBuilder, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { VacancyService } from '../../../../services/vacancy.service';
-import {FormBuilder, FormControl, FormGroup, NonNullableFormBuilder, Validators} from '@angular/forms';
 import { VacancyModel } from '@shared/modules/models/vacancy.model';
 
 @Component({
@@ -15,22 +15,25 @@ export class CreateVacancyPageComponent {
   vacancyCreateForm = this.formBuilder.group({
     name: this.formBuilder.control('', Validators.minLength(5)),
     company: this.formBuilder.control(''),
-    type: this.formBuilder.control(''),
     salary: this.formBuilder.control(''),
+    type: this.formBuilder.control('', Validators.required),
     description: this.formBuilder.control('', [Validators.minLength(100), Validators.maxLength(2000)]),
   });
 
   constructor(private vacancyService: VacancyService, private formBuilder: NonNullableFormBuilder) {}
 
-  createVacancy() {
+  onSubmit() {
     if (this.vacancyCreateForm.valid) {
-      this.vacancy = {...this.vacancyCreateForm.getRawValue(), date: Date.now()};
+      this.vacancy = {
+        ...this.vacancyCreateForm.getRawValue(),
+        date: Date.now()
+      };
       this.submitted = true;
       this.create();
     }
   }
 
   create() {
-    this.vacancyService.createVacancy(this.vacancy);
+    this.vacancyService.createVacancy(this.vacancy).subscribe();
   }
 }

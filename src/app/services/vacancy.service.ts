@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {VacancyModel} from "@shared/modules/models/vacancy.model";
+import { VacancyModel } from "@shared/modules/models/vacancy.model";
 
 @Injectable({
     providedIn: 'root'
@@ -9,16 +9,16 @@ import {VacancyModel} from "@shared/modules/models/vacancy.model";
 
 export class VacancyService {
 
-    private baseUrl = 'http://localhost:8080/api/';
+    private baseUrl = '/api/';
 
-    constructor(private http:HttpClient) { }
+    constructor(private http: HttpClient) { }
 
     getAllVacancies(): Observable<VacancyModel[]> {
-        return this.http.get<VacancyModel[]>(`${this.baseUrl}`+'jobs');
+        return this.http.get<VacancyModel[]>(`${this.baseUrl}` + 'jobs');
     }
 
     createVacancy(vacancy: VacancyModel): Observable<VacancyModel> {
-        return this.http.post<VacancyModel>(`${this.baseUrl}`+'jobs/create', vacancy);
+        return this.http.post<VacancyModel>('http://localhost:8080/jobs/create', vacancy);
     }
 
     deleteVacancy(id: number): Observable<boolean> {
@@ -29,7 +29,7 @@ export class VacancyService {
         return this.http.get<VacancyModel>(`${this.baseUrl}/jobs/${id}`);
     }
 
-    updateStudent(id: number, vacancy: VacancyModel): Observable<VacancyModel> {
-        return this.http.post<VacancyModel>(`${this.baseUrl}/update-student/${id}`, vacancy);
+    updateVacancy(id: number, vacancy: VacancyModel): Observable<VacancyModel> {
+        return this.http.post<VacancyModel>(`${this.baseUrl}/jobs/${id}/edit`, vacancy);
     }
 }

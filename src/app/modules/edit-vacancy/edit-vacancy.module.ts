@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core'
 import {RouterModule} from "@angular/router";
 import {EditVacancyPageComponent} from "./pages/edit-vacancy-page/edit-vacancy-page.component";
 import {VacancyService} from "../../services/vacancy.service";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
     declarations: [
@@ -14,6 +15,8 @@ import {VacancyService} from "../../services/vacancy.service";
                 component: EditVacancyPageComponent
             }
         ]),
+        FormsModule,
+        ReactiveFormsModule,
     ],
     providers: [VacancyService]
 })
