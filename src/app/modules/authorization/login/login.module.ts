@@ -3,6 +3,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component'
 import { NgModule } from '@angular/core'
 import {RouterModule} from "@angular/router";
 import {JobSearchPageComponent} from "../../job-search/pages/job-search-page/job-search-page.component";
+import {AuthService} from "../../../services/auth.service";
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import {JobSearchPageComponent} from "../../job-search/pages/job-search-page/job
         component: LoginPageComponent
       }
     ])
-  ]
+  ],
+  providers: [AuthService]
 })
 export class LoginModule {}

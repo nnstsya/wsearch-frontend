@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core'
-import {VacancyModel} from '@shared/modules/models/vacancy.model'
+import {VacancyModel, VacancyTypeModel} from '@shared/modules/models/vacancy.model'
 import {VacancyService} from "../../../../services/vacancy.service";
 import {ActivatedRoute} from "@angular/router";
 import {filter, map, Observable, switchMap, tap} from "rxjs";

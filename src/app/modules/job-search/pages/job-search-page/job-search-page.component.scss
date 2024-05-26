@@ -59,12 +59,12 @@
 
 .searchbar__filter-menu {
   position: absolute;
-  top: 100%; /* Position the menu below the search bar */
+  top: 100%;
   left: 0;
-  z-index: 1000; /* Ensure the menu is in front of other content */
-  background-color: white; /* Optionally, you can style the menu background */
-  border: 1px solid #ccc; /* Optionally, add a border */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optionally, add a shadow */
+  z-index: 1000;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   padding: 10px;
-  display: none; /* Hide the menu by default */
+  display: none;
 }

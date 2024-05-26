@@ -56,3 +56,44 @@
     }
   }
 }
+
+@media(min-width: 768px) {
+  .authorization-page {
+    gap: 22px;
+
+    &__form {
+      gap: 22px;
+
+      &__input {
+        &-label {
+          font-size: 18px;
+        }
+
+        &-field {
+          padding: 10px;
+          width: 360px;
+          border: 1.4px solid $blue-primary;
+        }
+      }
+
+      &__picker {
+        gap: 8px;
+
+        &-checkbox {
+          border: 1.4px solid $blue-primary;
+          border-radius: 5px;
+        }
+      }
+    }
+
+    &__button {
+      padding-block: 10px;
+      width: 360px;
+    }
+
+    &__actions {
+      font-size: 18px;
+      width: 360px;
+    }
+  }
+}

@@ -2,6 +2,7 @@
 
 .create-vacancy-page {
   display: flex;
+  place-items: center;
   padding: 20px 25px;
   flex-direction: column;
 
@@ -73,8 +74,7 @@
 }
 
 .input-field-description {
-  height: fit-content;
-  min-height: 200px;
+  height: 200px;
   overflow-wrap: break-word;
 }
 
@@ -85,5 +85,52 @@
 
   &-darker {
     background-color: $grey-lighter;
+  }
+}
+
+@media(min-width: 768px) {
+  .create-vacancy-page {
+    &__title {
+      font-size: 24px;
+    }
+
+    &__form {
+      gap: 14px;
+      margin-bottom: 26px;
+
+      &__input {
+        &-label {
+          font-size: 18px;
+        }
+
+        &-field {
+          padding: 10px;
+          min-width: 370px;
+          border: 1.4px solid $blue-primary;
+        }
+      }
+
+      &__picker {
+        gap: 8px;
+
+        &-checkbox {
+          border: 1.4px solid $blue-primary;
+        }
+      }
+    }
+
+    &__buttons {
+      gap: 12px;
+
+      &-button {
+        padding: 12px 24px;
+        width: 142px;
+        font-size: 18px;
+      }
+    }
+  }
+
+  .divider {
+    margin-block: 16px;
   }
 }

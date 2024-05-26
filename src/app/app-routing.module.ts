@@ -7,16 +7,11 @@ export const routes: Routes = [
     loadChildren: () => import('./modules/job-search/job-search.module').then(m => m.JobSearchModule)
   },
   {
-    path: '',
-    redirectTo: 'jobs',
-    pathMatch: "full"
-  },
-  {
-    path: 'login',
+    path: 'auth/login',
     loadChildren: () => import('./modules/authorization/login/login.module').then(m => m.LoginModule)
   },
   {
-    path: 'register',
+    path: 'auth/register',
     loadChildren: () => import('./modules/authorization/register/register.module').then(m => m.RegisterModule)
   },
   {
@@ -32,8 +27,8 @@ export const routes: Routes = [
     loadChildren: () => import('./modules/edit-vacancy/edit-vacancy.module').then(m => m.EditVacancyModule)
   },
   {
-    path: 'jobs/:id/edit',
-    loadChildren: () => import('./modules/edit-vacancy/edit-vacancy.module').then(m => m.EditVacancyModule)
+    path: '**',
+    redirectTo: 'jobs'
   },
   {
     path: 'profile',

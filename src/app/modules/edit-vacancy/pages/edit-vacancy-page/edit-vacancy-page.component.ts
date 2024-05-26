@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {filter, map, Observable, switchMap, tap} from "rxjs";
-import {VacancyModel} from "@shared/modules/models/vacancy.model";
+import {VacancyModel, VacancyTypeModel} from "@shared/modules/models/vacancy.model";
 import {VacancyService} from "../../../../services/vacancy.service";
 import {ActivatedRoute} from "@angular/router";
 import {NonNullableFormBuilder, Validators} from "@angular/forms";
@@ -16,7 +16,7 @@ export class EditVacancyPageComponent {
   name: this.formBuilder.control('', Validators.minLength(5)),
   company: this.formBuilder.control(''),
   salary: this.formBuilder.control(''),
-  type: this.formBuilder.control('', Validators.required),
+  type: this.formBuilder.control<VacancyTypeModel>(VacancyTypeModel.OFFICE, Validators.required),
   description: this.formBuilder.control('', [Validators.minLength(100), Validators.maxLength(2000)]),
 });
 
@@ -49,6 +49,7 @@ export class EditVacancyPageComponent {
     if (this.vacancyEditForm.valid) {
       const updatedVacancy: VacancyModel = {
         ...this.vacancyEditForm.getRawValue(),
+        type: this.vacancyEditForm.controls.type.value,
         id: this.vacancyConstParams.id,
         date: this.vacancyConstParams.date,
       };
