@@ -20,8 +20,16 @@ export const routes: Routes = [
     loadChildren: () => import('./modules/authorization/register/register.module').then(m => m.RegisterModule)
   },
   {
+    path: 'jobs/create',
+    loadChildren: () => import('./modules/create-vacancy/create-vacancy.module').then(m => m.CreateVacancyModule)
+  },
+  {
     path: 'jobs/:id',
     loadChildren: () => import('./modules/job-details/job-details.module').then(m => m.JobDetailsModule)
+  },
+  {
+    path: 'jobs/:id/edit',
+    loadChildren: () => import('./modules/edit-vacancy/edit-vacancy.module').then(m => m.EditVacancyModule)
   },
   {
     path: 'jobs/:id/edit',

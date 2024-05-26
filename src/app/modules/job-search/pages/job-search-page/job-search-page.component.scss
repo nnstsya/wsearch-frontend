@@ -4,11 +4,13 @@
   padding: 20px 25px;
   display: flex;
   flex-direction: column;
+  place-items: center;
 
   &__number-of-vacancies {
     font-size: 10px;
     font-weight: $font-weight-light;
     margin-block: 8px 14px;
+    align-self: start;
   }
 
   &__vacancies {
@@ -53,4 +55,16 @@
   place-items: center;
   color: $black;
   font-weight: $font-weight-light;
+}
+
+.searchbar__filter-menu {
+  position: absolute;
+  top: 100%; /* Position the menu below the search bar */
+  left: 0;
+  z-index: 1000; /* Ensure the menu is in front of other content */
+  background-color: white; /* Optionally, you can style the menu background */
+  border: 1px solid #ccc; /* Optionally, add a border */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optionally, add a shadow */
+  padding: 10px;
+  display: none; /* Hide the menu by default */
 }

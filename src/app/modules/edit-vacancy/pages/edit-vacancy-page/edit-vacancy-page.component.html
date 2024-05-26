@@ -1,1 +1,41 @@
-<p>edit-vacancy-page works!</p>
+<div class="edit-vacancy-page">
+    <p class="edit-vacancy-page__title">Редагування вакансії</p>
+    <div class="divider divider-darker"></div>
+    <form [formGroup]="vacancyEditForm" (ngSubmit)="onSubmit()">
+        <div class="edit-vacancy-page__form">
+            <div class="edit-vacancy-page__form__input">
+                <p class="edit-vacancy-page__form__input-label">Назва посади</p>
+                <input type="text" formControlName="name" class="edit-vacancy-page__form__input-field"/>
+            </div>
+            <div class="edit-vacancy-page__form__input">
+                <p class="edit-vacancy-page__form__input-label">Компанія</p>
+                <input type="text" formControlName="company" class="edit-vacancy-page__form__input-field" />
+            </div>
+            <div class="edit-vacancy-page__form__input">
+                <p class="edit-vacancy-page__form__input-label">Заробітна плата($)</p>
+                <input type="number" formControlName="salary" class="edit-vacancy-page__form__input-field">
+            </div>
+            <div>
+                <p class="edit-vacancy-page__form__input-label">Місцезнаходження</p>
+                <div class="edit-vacancy-page__form__picker">
+                    <input type="radio" formControlName="type" value="office" class="edit-vacancy-page__form__picker-radio" />
+                    <p class="edit-vacancy-page__form__input-label">Офіс</p>
+                </div>
+                <div class="edit-vacancy-page__form__picker">
+                    <input type="radio" formControlName="type" value="remote" class="edit-vacancy-page__form__picker-radio" />
+                    <p class="edit-vacancy-page__form__input-label">Віддалена робота</p>
+                </div>
+            </div>
+            <div class="edit-vacancy-page__form__input">
+                <p class="edit-vacancy-page__form__input-label">Опис вакансії</p>
+                <textarea formControlName="description" class="edit-vacancy-page__form__input-field input-field-description"></textarea>
+            </div>
+        </div>
+        <div class="edit-vacancy-page__buttons">
+            <button class="edit-vacancy-page__buttons-button button-done" type="submit">
+                Зберегти
+            </button>
+            <button type="button" class="edit-vacancy-page__buttons-button button-cancel">Скасувати</button>
+        </div>
+    </form>
+</div>

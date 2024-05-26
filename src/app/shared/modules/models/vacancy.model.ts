@@ -1,5 +1,5 @@
 export interface VacancyModel {
-  id?: string
+  id?: number
   name: string
   company: string
   type: string
