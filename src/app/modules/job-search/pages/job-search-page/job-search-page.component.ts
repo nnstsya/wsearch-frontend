@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { VacancyModel } from '@shared/modules/models/vacancy.model';
+import {VacancyModel, VacancyTypeModel} from '@shared/modules/models/vacancy.model';
 import { VacancyService } from '../../../../services/vacancy.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';

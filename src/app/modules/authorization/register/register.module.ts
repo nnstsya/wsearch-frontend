@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core'
 import {RegisterPageComponent} from "./pages/register-page/register-page.component";
 import {RouterModule} from "@angular/router";
 import {JobSearchPageComponent} from "../../job-search/pages/job-search-page/job-search-page.component";
+import {AuthService} from "../../../services/auth.service";
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import {JobSearchPageComponent} from "../../job-search/pages/job-search-page/job
         component: RegisterPageComponent
       }
     ])
-  ]
+  ],
+  providers: [AuthService]
 })
 export class RegisterModule {}

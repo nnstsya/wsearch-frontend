@@ -1,0 +1,26 @@
+<div class="profile-page">
+    <div class="profile-page__form">
+        <div class="profile-page__form__input">
+            <p class="profile-page__form__input-label">Ім'я і прізвище</p>
+            <input type="text" class="profile-page__form__input-field" />
+        </div>
+        <div class="profile-page__form__input">
+            <p class="profile-page__form__input-label">Пошта</p>
+            <input type="text" class="profile-page__form__input-field" />
+        </div>
+        <div class="profile-page__form__input">
+            <p class="profile-page__form__input-label">Пароль</p>
+            <input type="password" class="profile-page__form__input-field" />
+        </div>
+    </div>
+    <div class="profile-page__buttons">
+        <button
+                type="submit"
+                class="profile-page__buttons-button"
+                [disabled]="!isInEditMode"
+                [className]="isInEditMode ? 'profile-page__buttons-button' : 'profile-page__buttons-button btn-disabled'"
+        >Зберегти</button>
+        <p class="profile-page__buttons-action">Вийти з акаунту</p>
+        <p class="profile-page__buttons-action">Видалити акаунт</p>
+    </div>
+</div>

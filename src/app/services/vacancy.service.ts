@@ -14,7 +14,7 @@ export class VacancyService {
     constructor(private http: HttpClient) { }
 
     getAllVacancies(): Observable<VacancyModel[]> {
-        return this.http.get<VacancyModel[]>(`${this.baseUrl}` + 'jobs');
+        return this.http.get<VacancyModel[]>('http://localhost:8080/jobs/');
     }
 
     createVacancy(vacancy: VacancyModel): Observable<VacancyModel> {

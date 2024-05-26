@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { VacancyService } from '../../../../services/vacancy.service';
-import { VacancyModel } from '@shared/modules/models/vacancy.model';
+import {VacancyModel, VacancyTypeModel} from '@shared/modules/models/vacancy.model';
 
 @Component({
   selector: 'app-create-vacancy-page',
@@ -13,11 +13,11 @@ export class CreateVacancyPageComponent {
   submitted = false;
 
   vacancyCreateForm = this.formBuilder.group({
-    name: this.formBuilder.control('', Validators.minLength(5)),
-    company: this.formBuilder.control(''),
-    salary: this.formBuilder.control(''),
-    type: this.formBuilder.control('', Validators.required),
-    description: this.formBuilder.control('', [Validators.minLength(100), Validators.maxLength(2000)]),
+    name: this.formBuilder.control('', Validators.required),
+    company: this.formBuilder.control('', Validators.required),
+    salary: this.formBuilder.control('', Validators.required),
+    type: this.formBuilder.control<VacancyTypeModel>(VacancyTypeModel.OFFICE, Validators.required),
+    description: this.formBuilder.control('', Validators.required),
   });
 
   constructor(private vacancyService: VacancyService, private formBuilder: NonNullableFormBuilder) {}
@@ -26,6 +26,7 @@ export class CreateVacancyPageComponent {
     if (this.vacancyCreateForm.valid) {
       this.vacancy = {
         ...this.vacancyCreateForm.getRawValue(),
+        type: this.vacancyCreateForm.controls.type.value,
         date: Date.now()
       };
       this.submitted = true;
