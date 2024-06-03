@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   padding: 15px 25px;
   box-shadow: $header-box-shadow;
 
@@ -15,7 +15,7 @@
     display: flex;
   }
 
-  &__profile-icon {
+  &__icon {
     color: white;
     display: flex;
   }

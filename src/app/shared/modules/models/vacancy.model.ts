@@ -9,6 +9,6 @@ export interface VacancyModel {
 }
 
 export enum VacancyTypeModel {
-  OFFICE = 'Офіс',
-  REMOTE = 'Віддалена робота',
+  OFFICE = 'OFFICE',
+  REMOTE = 'REMOTE',
 }

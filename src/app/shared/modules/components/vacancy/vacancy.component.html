@@ -1,0 +1,13 @@
+<div class="vacancy">
+    <div class="wrapper wrapper__header">
+        <p class="vacancy__type">{{ vacancyTypeLabels[vacancy.type] }}</p>
+        <p class="vacancy__title" routerLink="/jobs/{{vacancy.id}}">{{ vacancy.name }}</p>
+        <div class="vacancy__additional-info">
+            <p class="vacancy__additional-info-company">{{ vacancy.company }}</p>
+            <p class="vacancy__additional-info-salary">{{ vacancy.salary }}$</p>
+        </div>
+    </div>
+    <div class="wrapper wrapper__footer">
+        <p class="vacancy__date">{{ vacancy.date | date: 'd/M/yy' }}</p>
+    </div>
+</div>

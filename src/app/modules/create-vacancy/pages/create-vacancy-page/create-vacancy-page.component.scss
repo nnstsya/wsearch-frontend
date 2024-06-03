@@ -63,6 +63,11 @@
   }
 }
 
+.error-message {
+  font-size: 12px;
+  color: $red;
+}
+
 .button {
   &-done {
     background-color: $blue-primary;
@@ -85,6 +90,14 @@
 
   &-darker {
     background-color: $grey-lighter;
+  }
+}
+
+.btn-disabled {
+  background-color: $grey;
+
+  &:hover {
+    cursor: default;
   }
 }
 
@@ -132,5 +145,10 @@
 
   .divider {
     margin-block: 16px;
+  }
+
+  .error-message {
+    font-size: 14px;
+    color: $red;
   }
 }

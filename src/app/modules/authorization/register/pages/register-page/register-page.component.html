@@ -1,34 +1,54 @@
 <div class="authorization-page">
-  <div class="authorization-page__form">
-    <div class="authorization-page__form__input">
-      <p class="authorization-page__form__input-label">Ім'я і прізвище</p>
-      <input type="text" class="authorization-page__form__input-field" />
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+        <div class="authorization-page__form">
+            <div class="authorization-page__form__input">
+                <p class="authorization-page__form__input-label">Ім'я і прізвище</p>
+                <input type="text" formControlName="name" class="authorization-page__form__input-field" />
+                <div *ngIf="signUpForm.controls['name'].invalid && signUpForm.controls['name'].touched" class="error-message">
+                    <p *ngIf="signUpForm.controls['name'].errors?.['required']">Це поле є обов'язковим.</p>
+                    <p *ngIf="signUpForm.controls['name'].errors?.['min']">Ім'я та прізвище має бути щонайменше 2 символи.</p>
+                    <p *ngIf="signUpForm.controls['name'].errors?.['max']">Ім'я та прізвище має бути не більше 30 символів.</p>
+                </div>
+            </div>
+            <div class="authorization-page__form__input">
+                <p class="authorization-page__form__input-label">Пошта</p>
+                <input type="text" formControlName="email" class="authorization-page__form__input-field" />
+                <div *ngIf="signUpForm.controls['email'].invalid && signUpForm.controls['email'].touched" class="error-message">
+                    <p *ngIf="signUpForm.controls['email'].errors?.['required']">Це поле є обов'язковим.</p>
+                    <p *ngIf="signUpForm.controls['email'].errors?.['email']">Введіть коректну пошту.</p>
+                </div>
+            </div>
+            <div class="authorization-page__form__input">
+                <p class="authorization-page__form__input-label">Пароль</p>
+                <input type="password" formControlName="password" class="authorization-page__form__input-field" />
+                <div *ngIf="signUpForm.controls['password'].invalid && signUpForm.controls['password'].touched" class="error-message">
+                    <p *ngIf="signUpForm.controls['password'].errors?.['required']">Це поле є обов'язковим.</p>
+                </div>
+            </div>
+            <div>
+                <p class="authorization-page__form__input-label">Я...</p>
+                <div class="authorization-page__form__picker">
+                    <input type="radio" formControlName="role" value="EMPLOYEE" class="authorization-page__form__picker-checkbox" />
+                    <p class="authorization-page__form__input-label">Шукаю роботу</p>
+                </div>
+                <div class="authorization-page__form__picker">
+                    <input type="radio" formControlName="role" value="EMPLOYER" class="authorization-page__form__picker-checkbox" />
+                    <p class="authorization-page__form__input-label">Роботодавець</p>
+                </div>
+                <div *ngIf="signUpForm.controls['role'].invalid && signUpForm.controls['role'].touched" class="error-message">
+                    <p *ngIf="signUpForm.controls['role'].errors?.['required']">Будь ласка, виберіть роль.</p>
+                </div>
+            </div>
+        </div>
+        <button type="submit"
+                [disabled]="signUpForm.invalid"
+                [className]="signUpForm.valid ? 'authorization-page__button mt-2' : 'authorization-page__button mt-2 btn-disabled'"
+        >Зареєструватись</button>
+    </form>
+    <div class="authorization-page__actions">
+        <p>Вже маєте акаунт?</p>
+        <a routerLink="/auth/login" class="authorization-page__actions-action">
+            <p>Увійти</p>
+        </a>
     </div>
-    <div class="authorization-page__form__input">
-      <p class="authorization-page__form__input-label">Пошта</p>
-      <input type="text" class="authorization-page__form__input-field" />
-    </div>
-    <div class="authorization-page__form__input">
-      <p class="authorization-page__form__input-label">Пароль</p>
-      <input type="password" class="authorization-page__form__input-field" />
-    </div>
-    <div>
-      <p class="authorization-page__form__input-label">Я...</p>
-      <div class="authorization-page__form__picker">
-        <input type="checkbox" class="authorization-page__form__picker-checkbox" />
-        <p class="authorization-page__form__input-label">Шукаю роботу</p>
-      </div>
-      <div class="authorization-page__form__picker">
-        <input type="checkbox" class="authorization-page__form__picker-checkbox" />
-        <p class="authorization-page__form__input-label">Роботодавець</p>
-      </div>
-    </div>
-  </div>
-  <button type="submit" class="authorization-page__button">Зареєсруватись</button>
-  <div class="authorization-page__actions">
-    <p>Вже маєте акаунт?</p>
-    <a routerLink="/auth/login" class="authorization-page__actions-action">
-      <p>Увійти</p>
-    </a>
-  </div>
 </div>

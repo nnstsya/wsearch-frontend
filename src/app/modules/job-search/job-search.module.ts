@@ -1,7 +1,6 @@
 import { EffectsModule } from '@shared/modules/effects/effects.module'
 import { LayoutModule } from '@shared/modules/layout/layout.module'
 
-import { JobSearchVacancyComponent } from './pages/job-search-page/components/job-search-vacancy/job-search-vacancy.component'
 import { JobSearchPageComponent } from './pages/job-search-page/job-search-page.component'
 
 import { CommonModule } from '@angular/common'
@@ -11,12 +10,14 @@ import { RouterModule } from '@angular/router'
 import {ButtonsModule} from "@shared/modules/buttons/buttons.module";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatButtonModule} from "@angular/material/button";
-import {VacancyService} from "../../services/vacancy.service";
+import {VacancyService} from "@services/vacancy.service";
+import {AuthModule} from "@shared/modules/auth/auth.module";
+import {ReactiveFormsModule} from "@angular/forms";
+import {ComponentsModule} from "@shared/modules/components/components.module";
 
 @NgModule({
   declarations: [
     JobSearchPageComponent,
-    JobSearchVacancyComponent
   ],
     imports: [
         EffectsModule,
@@ -32,6 +33,9 @@ import {VacancyService} from "../../services/vacancy.service";
         ButtonsModule,
         MatButtonModule,
         MatMenuModule,
+        AuthModule,
+        ComponentsModule,
+        ReactiveFormsModule,
     ],
     providers: [VacancyService]
 })

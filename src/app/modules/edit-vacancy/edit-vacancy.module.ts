@@ -3,6 +3,7 @@ import {RouterModule} from "@angular/router";
 import {EditVacancyPageComponent} from "./pages/edit-vacancy-page/edit-vacancy-page.component";
 import {VacancyService} from "../../services/vacancy.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {CommonModule} from "@angular/common";
 
 @NgModule({
     declarations: [
@@ -15,6 +16,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
                 component: EditVacancyPageComponent
             }
         ]),
+        CommonModule,
         FormsModule,
         ReactiveFormsModule,
     ],

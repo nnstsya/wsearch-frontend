@@ -20,27 +20,6 @@
   }
 }
 
-.loader {
-  width: 10px;
-  height: 10px;
-  margin-left: 4px;
-  border: 2px solid #FFF;
-  border-bottom-color: transparent;
-  border-radius: 50%;
-  display: inline-block;
-  box-sizing: border-box;
-  animation: rotation 1s linear infinite;
-}
-
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 .btn-big {
   width: 168px;
   height: 32px;
@@ -57,13 +36,6 @@
     &-icon {
       font-size: 18px;
     }
-  }
-
-  .loader {
-    width: 14px;
-    height: 14px;
-    margin-left: 6px;
-    border: 2px solid #FFF;
   }
 
   .btn-big {

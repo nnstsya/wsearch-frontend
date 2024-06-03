@@ -6,36 +6,60 @@
             <div class="create-vacancy-page__form__input">
                 <p class="create-vacancy-page__form__input-label">Назва посади</p>
                 <input type="text" formControlName="name" class="create-vacancy-page__form__input-field"/>
+                <div *ngIf="vacancyCreateForm.controls['name'].invalid && vacancyCreateForm.get('name')?.touched" class="error-message">
+                    <p *ngIf="vacancyCreateForm.controls['name'].errors?.['required']">Це поле є обов'язковим.</p>
+                    <p *ngIf="vacancyCreateForm.controls['name'].errors?.['minlength']">Мінімальна довжина - 10 символів.</p>
+                    <p *ngIf="vacancyCreateForm.controls['name'].errors?.['maxlength']">Максимальна довжина - 50 символів.</p>
+                </div>
             </div>
             <div class="create-vacancy-page__form__input">
                 <p class="create-vacancy-page__form__input-label">Компанія</p>
                 <input type="text" formControlName="company" class="create-vacancy-page__form__input-field" />
+                <div *ngIf="vacancyCreateForm.controls['company'].invalid && vacancyCreateForm.controls['company'].touched" class="error-message">
+                    <p *ngIf="vacancyCreateForm.controls['company'].errors?.['required']">Це поле є обов'язковим.</p>
+                    <p *ngIf="vacancyCreateForm.controls['company'].errors?.['minlength']">Мінімальна довжина - 2 символи.</p>
+                    <p *ngIf="vacancyCreateForm.controls['company'].errors?.['maxlength']">Максимальна довжина - 50 символів.</p>
+                </div>
             </div>
             <div class="create-vacancy-page__form__input">
                 <p class="create-vacancy-page__form__input-label">Заробітна плата($)</p>
                 <input type="number" formControlName="salary" class="create-vacancy-page__form__input-field">
+                <div *ngIf="vacancyCreateForm.controls['salary'].invalid && vacancyCreateForm.controls['salary'].touched" class="error-message">
+                    <p *ngIf="vacancyCreateForm.controls['salary'].errors?.['required']">Це поле є обов'язковим.</p>
+                    <p *ngIf="vacancyCreateForm.controls['salary'].errors?.['max']">Максимальна цифра - 100000.</p>
+                </div>
             </div>
             <div>
                 <p class="create-vacancy-page__form__input-label">Місцезнаходження</p>
                 <div class="create-vacancy-page__form__picker">
-                    <input type="radio" formControlName="type" value="office" class="create-vacancy-page__form__picker-radio" />
+                    <input type="radio" formControlName="type" value="OFFICE" class="create-vacancy-page__form__picker-radio" />
                     <p class="create-vacancy-page__form__input-label">Офіс</p>
                 </div>
                 <div class="create-vacancy-page__form__picker">
-                    <input type="radio" formControlName="type" value="remote" class="create-vacancy-page__form__picker-radio" />
+                    <input type="radio" formControlName="type" value="REMOTE" class="create-vacancy-page__form__picker-radio" />
                     <p class="create-vacancy-page__form__input-label">Віддалена робота</p>
+                </div>
+                <div *ngIf="vacancyCreateForm.controls['type'].invalid && vacancyCreateForm.controls['type'].touched" class="error-message">
+                    <p *ngIf="vacancyCreateForm.controls['type'].errors?.['required']">Будь ласка, оберіть тип вакансії.</p>
                 </div>
             </div>
             <div class="create-vacancy-page__form__input">
                 <p class="create-vacancy-page__form__input-label">Опис вакансії</p>
                 <textarea formControlName="description" class="create-vacancy-page__form__input-field input-field-description"></textarea>
+                <div *ngIf="vacancyCreateForm.controls['description'].invalid && vacancyCreateForm.controls['description'].touched" class="error-message">
+                    <p *ngIf="vacancyCreateForm.controls['description'].errors?.['required']">Це поле є обов'язковим.</p>
+                    <p *ngIf="vacancyCreateForm.controls['description'].errors?.['minlength']">Мінімальна довжина - 100 символів.</p>
+                    <p *ngIf="vacancyCreateForm.controls['description'].errors?.['maxlength']">Максимальна довжина - 4000 символів.</p>
+                </div>
             </div>
         </div>
         <div class="create-vacancy-page__buttons">
-            <button class="create-vacancy-page__buttons-button button-done" type="submit">
+            <button type="submit"
+                    [disabled]="vacancyCreateForm.invalid"
+                    [className]="vacancyCreateForm.valid ? 'create-vacancy-page__buttons-button button-done' : 'create-vacancy-page__buttons-button button-done btn-disabled'">
                 Створити
             </button>
-            <button type="button" class="create-vacancy-page__buttons-button button-cancel">Скасувати</button>
+            <button type="button" class="create-vacancy-page__buttons-button button-cancel" routerLink="/jobs">Скасувати</button>
         </div>
     </form>
 </div>

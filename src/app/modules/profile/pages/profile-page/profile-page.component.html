@@ -1,26 +1,52 @@
-<div class="profile-page">
-    <div class="profile-page__form">
-        <div class="profile-page__form__input">
-            <p class="profile-page__form__input-label">Ім'я і прізвище</p>
-            <input type="text" class="profile-page__form__input-field" />
+<div class="profile-page mb-4 mt-4">
+    <form [formGroup]="userEditForm" (ngSubmit)="onSubmit()">
+        <div class="profile-page__form">
+            <div class="profile-page__form__input">
+                <p class="profile-page__form__input-label">Ім'я і прізвище</p>
+                <input type="text"
+                       class="profile-page__form__input-field"
+                       formControlName="name"
+                />
+                <div *ngIf="userEditForm.controls['name'].invalid && userEditForm.controls['name'].touched" class="error-message">
+                    <p *ngIf="userEditForm.controls['name'].errors?.['required']">Це поле є обов'язковим.</p>
+                    <p *ngIf="userEditForm.controls['name'].errors?.['minLength']">Ім'я та прізвище має бути щонайменше 2 символи.</p>
+                    <p *ngIf="userEditForm.controls['name'].errors?.['maxLength']">Ім'я та прізвище має бути не більше 30 символів.</p>
+                </div>
+            </div>
+            <div class="profile-page__form__input">
+                <p class="profile-page__form__input-label">Пошта</p>
+                <input type="text"
+                       class="profile-page__form__input-field"
+                       formControlName="email"
+                />
+                <div *ngIf="userEditForm.controls['email'].invalid && userEditForm.controls['email'].touched" class="error-message">
+                    <p *ngIf="userEditForm.controls['email'].errors?.['required']">Це поле є обов'язковим.</p>
+                    <p *ngIf="userEditForm.controls['email'].errors?.['email']">Введіть коректну пошту.</p>
+                </div>
+            </div>
         </div>
-        <div class="profile-page__form__input">
-            <p class="profile-page__form__input-label">Пошта</p>
-            <input type="text" class="profile-page__form__input-field" />
+        <div class="profile-page__buttons">
+            <button
+                    type="submit"
+                    [disabled]="!userEditForm.dirty && !userEditForm.valid"
+                    [className]="(userEditForm.dirty && userEditForm.valid) ? 'profile-page__buttons-button mt-3' : 'profile-page__buttons-button btn-disabled  mt-3'"
+            >Зберегти</button>
+            <p class="profile-page__buttons-action" (click)="logout()">Вийти з акаунту</p>
+            <p class="profile-page__buttons-action" (click)="deleteAccount()">Видалити акаунт</p>
         </div>
-        <div class="profile-page__form__input">
-            <p class="profile-page__form__input-label">Пароль</p>
-            <input type="password" class="profile-page__form__input-field" />
-        </div>
-    </div>
-    <div class="profile-page__buttons">
-        <button
-                type="submit"
-                class="profile-page__buttons-button"
-                [disabled]="!isInEditMode"
-                [className]="isInEditMode ? 'profile-page__buttons-button' : 'profile-page__buttons-button btn-disabled'"
-        >Зберегти</button>
-        <p class="profile-page__buttons-action">Вийти з акаунту</p>
-        <p class="profile-page__buttons-action">Видалити акаунт</p>
-    </div>
+    </form>
+    <div class="divider"></div>
+    <ng-container *ngIf="((user$ | async)?.role || UserRoleModel.EMPLOYER) | validateRoles: UserRoleModel.EMPLOYEE">
+        <p>Вакансії, на які ви відгукнулись:</p>
+        <ng-container *ngIf="userVacancies.length; else noResultsTemplate">
+            <ng-container *ngFor="let vacancy of userVacancies">
+                <app-vacancy [vacancy]="vacancy"></app-vacancy>
+            </ng-container>
+        </ng-container>
+        <ng-template #noResultsTemplate>
+            <div class="no-results">
+                <p>Ви поки що не відгукнулись на жодну вакансію.</p>
+            </div>
+        </ng-template>
+    </ng-container>
 </div>

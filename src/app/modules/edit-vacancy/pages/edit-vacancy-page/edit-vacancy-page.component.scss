@@ -88,6 +88,19 @@
   }
 }
 
+.btn-disabled {
+  background-color: $grey;
+
+  &:hover {
+    cursor: default;
+  }
+}
+
+.error-message {
+  font-size: 12px;
+  color: $red;
+}
+
 @media(min-width: 768px) {
   .edit-vacancy-page {
     &__title {
@@ -132,5 +145,10 @@
 
   .divider {
     margin-block: 16px;
+  }
+
+  .error-message {
+    font-size: 14px;
+    color: $red;
   }
 }

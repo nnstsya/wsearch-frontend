@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { VacancyService } from '../../../../services/vacancy.service';
 import {VacancyModel, VacancyTypeModel} from '@shared/modules/models/vacancy.model';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-vacancy-page',
@@ -13,14 +14,17 @@ export class CreateVacancyPageComponent {
   submitted = false;
 
   vacancyCreateForm = this.formBuilder.group({
-    name: this.formBuilder.control('', Validators.required),
-    company: this.formBuilder.control('', Validators.required),
-    salary: this.formBuilder.control('', Validators.required),
+    name: this.formBuilder.control('', [Validators.required, Validators.minLength(10), Validators.maxLength(50)]),
+    company: this.formBuilder.control('', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]),
+    salary: this.formBuilder.control('', [Validators.required, Validators.max(100000)]),
     type: this.formBuilder.control<VacancyTypeModel>(VacancyTypeModel.OFFICE, Validators.required),
-    description: this.formBuilder.control('', Validators.required),
+    description: this.formBuilder.control('', [Validators.required, Validators.minLength(100), Validators.maxLength(4000)]),
   });
 
-  constructor(private vacancyService: VacancyService, private formBuilder: NonNullableFormBuilder) {}
+  constructor(private vacancyService: VacancyService,
+              private formBuilder: NonNullableFormBuilder,
+              private router: Router
+  ) {}
 
   onSubmit() {
     if (this.vacancyCreateForm.valid) {
@@ -36,5 +40,6 @@ export class CreateVacancyPageComponent {
 
   create() {
     this.vacancyService.createVacancy(this.vacancy).subscribe();
+    this.router.navigate(['jobs']).then(location.reload);
   }
 }

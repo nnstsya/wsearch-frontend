@@ -17,9 +17,9 @@
 .job-details-page {
   padding: 20px 25px;
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
-  height: calc(100dvh - $header-height);
+  gap: 14px;
+  min-height: 100vh;
 
   &__wrapper {
     display: flex;
@@ -31,10 +31,19 @@
     justify-content: space-between;
     align-items: center;
 
-    &-edit {
+    &-wrapper {
+      display: flex;
+      place-items: center;
+    }
+
+    &-icon {
       width: 18px;
       height: 18px;
       font-size: 18px;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 
@@ -90,4 +99,43 @@
   }
 }
 
+@media(min-width: 768px) {
+  .divider {
+    margin-block: 4px;
+  }
+
+  .job-details-page {
+    &__header-icon {
+      width: 22px;
+      height: 22px;
+      font-size: 22px;
+    }
+
+    &__name {
+      margin-left: 10px;
+      font-size: 26px;
+    }
+
+    &__info {
+      gap: 14px;
+      font-size: 17px;
+    }
+
+    &__location-heading, &__description-heading {
+      font-size: 22px;
+    }
+
+    &__location {
+      &-type {
+        font-size: 16px;
+        padding: 4px 12px;
+      }
+    }
+
+    &__description {
+      font-size: 18px;
+      margin-bottom: 18px;
+    }
+  }
+}
 

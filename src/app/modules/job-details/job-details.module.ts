@@ -7,6 +7,8 @@ import {EffectsModule} from "@shared/modules/effects/effects.module";
 import {ButtonsModule} from "@shared/modules/buttons/buttons.module";
 import {VacancyService} from "../../services/vacancy.service";
 import {AsyncPipe, CommonModule} from "@angular/common";
+import {AuthService} from "../../services/auth.service";
+import {AuthModule} from "@shared/modules/auth/auth.module";
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import {AsyncPipe, CommonModule} from "@angular/common";
     ]),
     MatIcon,
     ButtonsModule,
+    AsyncPipe,
+    AuthModule
   ],
-  providers: [VacancyService]
+  providers: [VacancyService, AuthService]
 })
 export class JobDetailsModule {}

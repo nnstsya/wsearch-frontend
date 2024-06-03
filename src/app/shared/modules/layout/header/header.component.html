@@ -2,7 +2,21 @@
   <a routerLink="/jobs" class="header__logo">
     <img src="assets/img/icons/wsearch-icon.svg" alt="">
   </a>
-  <a routerLink="/auth/register" class="header__profile-icon">
-    <mat-icon>person</mat-icon>
-  </a>
+    <div class="d-flex flex-row">
+        <ng-container *ngIf="((user$ | async)?.role || UserRoleModel.EMPLOYEE) | validateRoles: UserRoleModel.EMPLOYER">
+            <a class="header__icon mr-3" routerLink="/jobs/create">
+                <mat-icon>add icon</mat-icon>
+            </a>
+        </ng-container>
+        <ng-container *ngIf="user$ | async; else authTemplate">
+            <a class="header__icon" (click)="openProfile()">
+                <mat-icon>person</mat-icon>
+            </a>
+        </ng-container>
+        <ng-template #authTemplate>
+            <a routerLink="/auth/register" class="header__icon">
+                <mat-icon>person</mat-icon>
+            </a>
+        </ng-template>
+    </div>
 </header>

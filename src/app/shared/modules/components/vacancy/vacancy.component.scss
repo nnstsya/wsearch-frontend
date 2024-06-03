@@ -1,4 +1,4 @@
-@import '../../../../../../shared/modules/scss/custom';
+@import '../../../../shared/modules/scss/custom';
 
 .wrapper {
   display: flex;
@@ -16,8 +16,8 @@
   flex-direction: column;
   box-shadow: $vacancy-box-shadow;
   border-radius: 10px;
-  min-width: 274px;
-  height: 140px;
+  width: 274px;
+  height: 160px;
 
   &:hover {
     box-shadow: $vacancy-box-shadow-focus;
@@ -37,6 +37,10 @@
   &__title {
     font-size: 18px;
     font-weight: $font-weight-semiBold;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__additional-info {
@@ -58,5 +62,46 @@
   &__date {
     color: $grey-darker;
     font-size: 10px;
+  }
+}
+
+@media(min-width: 768px) {
+  .wrapper {
+    &__footer {
+      gap: 8px;
+    }
+  }
+
+  .vacancy {
+    padding: 15px 20px 19px;
+    width: 344px;
+    height: 200px;
+
+    &__type {
+      font-size: 16px;
+      font-weight: $font-weight-medium;
+      padding: 5px 12px;
+      margin-bottom: 7px;
+    }
+
+    &__title {
+      font-size: 26px;
+    }
+
+    &__additional-info {
+      gap: 16px;
+
+      &-company {
+        font-size: 20px;
+      }
+
+      &-salary {
+        font-size: 18px;
+      }
+    }
+
+    &__date {
+      font-size: 18px;
+    }
   }
 }

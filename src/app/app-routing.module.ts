@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
+import {JwtAuthGuard} from "@shared/modules/auth/guards/jwt-auth.guard";
+import {EmployerGuard} from "@shared/modules/auth/guards/employer.guard";
 
 export const routes: Routes = [
   {
@@ -16,7 +18,8 @@ export const routes: Routes = [
   },
   {
     path: 'jobs/create',
-    loadChildren: () => import('./modules/create-vacancy/create-vacancy.module').then(m => m.CreateVacancyModule)
+    loadChildren: () => import('./modules/create-vacancy/create-vacancy.module').then(m => m.CreateVacancyModule),
+    canActivate: [EmployerGuard]
   },
   {
     path: 'jobs/:id',
@@ -24,15 +27,17 @@ export const routes: Routes = [
   },
   {
     path: 'jobs/:id/edit',
-    loadChildren: () => import('./modules/edit-vacancy/edit-vacancy.module').then(m => m.EditVacancyModule)
+    loadChildren: () => import('./modules/edit-vacancy/edit-vacancy.module').then(m => m.EditVacancyModule),
+    canActivate: [EmployerGuard],
+  },
+  {
+    path: 'profile/:id',
+    loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule),
+    canActivate: [JwtAuthGuard],
   },
   {
     path: '**',
     redirectTo: 'jobs'
-  },
-  {
-    path: 'profile',
-    loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule)
   }
 ]
 
